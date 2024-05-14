@@ -1,148 +1,154 @@
 {
     "@context": {
+        "ovdrs": "https://oorlogvoorderechter.nl/schema/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "schema": "https://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "owl": "http://www.w3.org/2002/07/owl#",
         "ArchiveComponent": {
             "@id": "schema:ArchiveComponent"
         },
         "DigitalDocument": {
-            "@id": "https://schema.org/DigitalDocument"
+            "@id": "schema:DigitalDocument"
         },
         "DocumentType": {
-            "@id": "https://oorlogvoorderechter.nl/schema/DocumentType"
+            "@id": "ovdrs:DocumentType"
         },
         "Page": {
-            "@id": "https://oorlogvoorderechter.nl/schema/Page"
+            "@id": "ovdrs:Page"
         },
         "Person": {
-            "@id": "https://schema.org/Person"
+            "@id": "schema:Person"
         },
         "Place": {
-            "@id": "https://schema.org/Place"
+            "@id": "schema:Place"
         },
         "Phase": {
-            "@id": "https://oorlogvoorderechter.nl/schema/Phase"
+            "@id": "ovdrs:Phase"
         },
         "Orgaan": {
-            "@id": "https://oorlogvoorderechter.nl/schema/Orgaan"
+            "@id": "ovdrs:Orgaan"
         },
         "Card": {
-            "@id": "https://oorlogvoorderechter.nl/schema/Card"
+            "@id": "ovdrs:Card"
         },
         "Scan": {
-            "@id": "https://oorlogvoorderechter.nl/schema/Scan"
+            "@id": "ovdrs:Scan"
         },
         "Concept": {
-            "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+            "@id": "skos:Concept"
         },
         "name": {
-            "@id": "https://schema.org/name"
+            "@id": "schema:name"
         },
         "identifier": {
-            "@id": "https://schema.org/identifier"
+            "@id": "schema:identifier"
         },
         "familyNamePrefix": {
-            "@id": "https://oorlogvoorderechter.nl/schema/familyNamePrefix"
+            "@id": "ovdrs:familyNamePrefix"
         },
         "marriedTo": {
-            "@id": "https://oorlogvoorderechter.nl/schema/marriedTo"
+            "@id": "ovdrs:marriedTo"
         },
         "familyName": {
-            "@id": "https://schema.org/familyName"
+            "@id": "schema:familyName"
         },
         "gender": {
-            "@id": "https://schema.org/gender"
+            "@id": "schema:gender"
         },
         "givenName": {
-            "@id": "https://schema.org/givenName"
+            "@id": "schema:givenName"
         },
         "birthPlace": {
-            "@id": "https://schema.org/birthPlace"
+            "@id": "schema:birthPlace"
         },
         "birthDate": {
-            "@id": "https://schema.org/birthDate"
+            "@id": "schema:birthDate"
         },
         "deathPlace": {
-            "@id": "https://schema.org/deathPlace"
+            "@id": "schema:deathPlace"
         },
         "deathDate": {
-            "@id": "https://schema.org/deathDate"
+            "@id": "schema:deathDate"
         },
         "homeLocation": {
-            "@id": "https://schema.org/homeLocation"
+            "@id": "schema:homeLocation"
         },
         "additionalType": {
-            "@id": "https://schema.org/additionalType"
+            "@id": "schema:additionalType"
         },
         "numberOfPages": {
-            "@id": "https://schema.org/numberOfPages"
+            "@id": "schema:numberOfPages"
         },
         "dossierNummer": {
-            "@id": "https://oorlogvoorderechter.nl/schema/dossierNummer"
+            "@id": "ovdrs:dossierNummer"
         },
         "inventarisNummer": {
-            "@id": "https://oorlogvoorderechter.nl/schema/inventarisNummer"
+            "@id": "ovdrs:inventarisNummer"
         },
         "inventarisNummerAfkomstig": {
-            "@id": "https://oorlogvoorderechter.nl/schema/inventarisNummerAfkomstig"
+            "@id": "ovdrs:inventarisNummerAfkomstig"
         },
         "pageEnd": {
-            "@id": "https://schema.org/pageEnd"
+            "@id": "schema:pageEnd"
         },
         "pageStart": {
-            "@id": "https://schema.org/pageStart"
+            "@id": "schema:pageStart"
         },
         "image": {
-            "@id": "https://schema.org/image"
+            "@id": "schema:image"
         },
         "transcript": {
-            "@id": "https://schema.org/transcript"
+            "@id": "schema:transcript"
         },
         "text": {
-            "@id": "https://schema.org/text"
+            "@id": "schema:text"
         },
         "position": {
-            "@id": "https://schema.org/position"
+            "@id": "schema:position"
         },
         "width": {
-            "@id": "https://schema.org/width"
+            "@id": "schema:width"
         },
         "height": {
-            "@id": "https://schema.org/height"
+            "@id": "schema:height"
         },
         "orgaan": {
-            "@id": "https://oorlogvoorderechter.nl/schema/orgaan"
+            "@id": "ovdrs:orgaan"
         },
         "subEvent": {
-            "@id": "https://schema.org/subEvent"
+            "@id": "schema:subEvent"
         },
         "prefLabel": {
-            "@id": "http://www.w3.org/2004/02/skos/core#prefLabel"
+            "@id": "skos:prefLabel"
         },
         "scopeNote": {
-            "@id": "http://www.w3.org/2004/02/skos/core#scopeNote"
+            "@id": "skos:scopeNote"
         },
         "sameAs": {
-            "@id": "http://www.w3.org/2002/07/owl#sameAs"
+            "@id": "owl:sameAs"
         },
         "scan": {
-            "@id": "https://oorlogvoorderechter.nl/schema/scan"
+            "@id": "ovdrs:scan"
         },
         "publisher": {
-            "@id": "https://schema.org/publisher"
+            "@id": "schema:publisher"
         },
         "side": {
-            "@id": "https://oorlogvoorderechter.nl/schema/side"
+            "@id": "ovdrs:side"
         },
         "image": {
-            "@id": "https://schema.org/image"
+            "@id": "schema:image"
         },
         "verdachte": {
-            "@id": "https://oorlogvoorderechter.nl/schema/verdachte"
+            "@id": "ovdrs:verdachte"
         },
         "isPartOf": {
-            "@id": "https://schema.org/isPartOf"
+            "@id": "schema:isPartOf"
         },
         "documentType": {
-            "@id": "https://oorlogvoorderechter.nl/schema/documentType"
+            "@id": "ovdrs:documentType"
         }
     }
 }
