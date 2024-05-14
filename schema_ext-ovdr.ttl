@@ -1,0 +1,177 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix ovdrs: <https://oorlogvoorderechter.nl/schema/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+### This file defines and extension of schema.org for oorlog voor de rechter (OVDR).
+
+#OVDR specific classes
+
+## More specific classes of schema:CreativeWork
+
+ovdrs:Page a rdfs:Class ;
+        rdfs:label "Pagina"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type voor pagina's van documenten."@nl .
+
+ovdrs:Scan a rdfs:Class ;
+        rdfs:label "Scan"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type voor scans van documenten."@nl .
+
+ovdrs:Card a rdfs:Class ;
+        rdfs:label "Kaart"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type voor archiefkaarten die betrekking hebben op één of meerdere personen of bedrijven."@nl .
+
+ovdrs:Dossier a rdfs:Class ;
+        rdfs:label "Dossier"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Dossier over een persoon of bedrijf."@nl .
+
+ovdrs:DocumentType a rdfs:Class ;
+        rdfs:label "Document type"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type dat kan worden toegekend aan een document."@nl .
+
+## More specific classes of schema:Thing
+
+ovdrs:Phase a rdfs:Class ;
+        rdfs:label "Fase"@nl ;
+        rdfs:subClassOf schema:Thing ;
+        rdfs:comment "Fase van de rechtsgang van een verdachte of een verdacht bedrijf."@nl .
+
+ovdrs:Casus a rdfs:Class ;
+        rdfs:label "Casus"@nl ;
+        rdfs:subClassOf schema:Thing ;
+        rdfs:comment "Casus van een verdachte of een verdacht bedrijf."@nl .
+
+ovdrs:Orgaan a rdfs:Class ;
+        rdfs:label "Orgaan"@nl ;
+        rdfs:subClassOf schema:Thing ;
+        rdfs:comment "Orgaan waarvan documenten zijn opgenomen in het archief."@nl .
+
+# OVDR specific properties
+
+ovdrs:scan a rdf:Property ;
+        rdfs:label "Scan"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van het document waarbij een scan hoort"@nl ;
+        schema:domainIncludes ovdrs:Scan ;
+        schema:rangeIncludes ovdrs:Card .
+
+ovdrs:verdachte a rdf:Property ;
+        rdfs:label "Verdachte"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een verdachte die bij een casus hoort"@nl ;
+        schema:domainIncludes ovdrs:Casus ;
+        schema:rangeIncludes schema:Person .
+
+ovdrs:phase a rdf:Property ;
+        rdfs:label "Fase"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een casus die bij een fase hoort"@nl ;
+        schema:domainIncludes ovdrs:Phase ;
+        schema:rangeIncludes ovdrs:Casus .
+
+ovdrs:orgaan a rdf:Property ;
+        rdfs:label "Orgaan"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een orgaan die bij een casus hoort"@nl ;
+        schema:domainIncludes ovdrs:Phase ;
+        schema:rangeIncludes ovdrs:Orgaan, schema:Organization .
+
+ovdrs:dossier a rdf:Property ;
+        rdfs:label "Dossier"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een dossier die bij een kaart hoort"@nl ;
+        schema:domainIncludes ovdrs:Card ;
+        schema:rangeIncludes ovdrs:Dossier .
+
+ovdrs:inventory a rdf:Property ;
+        rdfs:label "Inventaris"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een inventaris die bij een kaart hoort"@nl ;
+        schema:domainIncludes ovdrs:Card, ovdrs:Casus ;
+        schema:rangeIncludes schema:ArchiveComponent .
+
+ovdrs:betrokkene a rdf:Property ;
+        rdfs:label "Betrokkene"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een persoon die bij een inventaris hoort"@nl ;
+        schema:domainIncludes schema:ArchiveComponent ;
+        schema:rangeIncludes schema:Person .
+
+ovdrs:slachoffer a rdf:Property ;
+        rdfs:label "Slachtoffer"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een slachtoffer die bij een inventaris hoort"@nl ;
+        schema:domainIncludes schema:ArchiveComponent ;
+        schema:rangeIncludes schema:Person .
+
+ovdrs:documentType a rdf:Property ;
+        rdfs:label "Document type"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een document type dat bij een document hoort"@nl ;
+        schema:domainIncludes schema:DigitalDocument ;
+        schema:rangeIncludes ovdrs:DocumentType .
+
+ovdrs:event a rdf:Property ;
+        rdfs:label "Event"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een event type dat bij een document type hoort"@nl ;
+        schema:domainIncludes ovdrs:DocumentType ;
+        schema:rangeIncludes skos:Concept .
+
+## Attributes
+
+ovdrs:side a rdf:Property ;
+        rdfs:label "Kant"@nl ;
+        rdfs:comment "Gebruikt om de kant weergegeven op een scan aan te geven"@nl ;
+        schema:domainIncludes ovdrs:Scan ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:cartotheekNummer a rdf:Property ;
+        rdfs:label "Cartotheek nummer"@nl ;
+        rdfs:comment "Gebruikt om het cartotheek nummer van een kaart aan te geven"@nl ;
+        schema:domainIncludes ovdrs:Card ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:cabrId a rdf:Property ;
+        rdfs:label "CABR ID"@nl ;
+        rdfs:comment "Gebruikt om het CABR ID van een kaart aan te geven"@nl ;
+        schema:domainIncludes ovdrs:Card ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:dossierNummer a rdf:Property ;
+        rdfs:label "Dossier nummer"@nl ;
+        rdfs:comment "Gebruikt om het dossier nummer van een kaart aan te geven"@nl ;
+        schema:domainIncludes ovdrs:Card ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:inventarisNummer a rdf:Property ;
+        rdfs:label "Inventaris nummer"@nl ;
+        rdfs:comment "Gebruikt om het inventaris nummer van een kaart aan te geven"@nl ;
+        schema:domainIncludes ovdrs:Card ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:nodeId a rdf:Property ;
+        rdfs:label "Node ID"@nl ;
+        rdfs:comment "Gebruikt om het node ID van een persoon aan te geven"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:overleden a rdf:Property ;
+        rdfs:label "Overleden"@nl ;
+        rdfs:comment "Gebruikt aan te geven of een persoon is overleden"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:familynamePrefix a rdf:Property ;
+        rdfs:label "Tussenvoegsel"@nl ;
+        rdfs:comment "Gebruikt om het tussenvoegsel van een (familienaam van een) persoon aan te geven"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:marriedTo a rdf:Property ;
+        rdfs:label "Getrouwd met"@nl ;
+        rdfs:comment "Gebruikt om aan te geven met wie een persoon destijds was getrouwd"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Text .
+
+ovdrs:marriedTo a rdf:Property ;
+        rdfs:label "Getrouwd met"@nl ;
+        rdfs:comment "Gebruikt om aan te geven met wie een persoon destijds was getrouwd"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Text .
