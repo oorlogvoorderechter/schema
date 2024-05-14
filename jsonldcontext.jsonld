@@ -143,6 +143,6 @@
         },
         "documentType": {
             "@id": "https://oorlogvoorderechter.nl/schema/documentType"
-        },
+        }
     }
 }
