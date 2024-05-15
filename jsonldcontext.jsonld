@@ -27,6 +27,9 @@
         "Phase": {
             "@id": "ovdrs:Phase"
         },
+        "Casus": {
+            "@id": "ovdrs:Casus"
+        },
         "Orgaan": {
             "@id": "ovdrs:Orgaan"
         },
