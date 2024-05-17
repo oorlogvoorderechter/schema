@@ -32,7 +32,7 @@ ovdrs:Dossier a rdfs:Class ;
 
 ovdrs:DocumentType a rdfs:Class ;
         rdfs:label "Document type"@nl ;
-        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:subClassOf schema:DefinedTerm ;
         rdfs:comment "Type dat kan worden toegekend aan een document."@nl .
 
 ## More specific classes of schema:Thing
@@ -40,7 +40,7 @@ ovdrs:DocumentType a rdfs:Class ;
 ovdrs:Phase a rdfs:Class ;
         rdfs:label "Fase"@nl ;
         rdfs:subClassOf schema:Thing ;
-        rdfs:comment "Fase van de rechtsgang van een verdachte of een verdacht bedrijf."@nl .
+        rdfs:comment "Fase van de rechtsgang binnen de casus van een verdachte of een verdacht bedrijf."@nl .
 
 ovdrs:Casus a rdfs:Class ;
         rdfs:label "Casus"@nl ;
@@ -57,8 +57,8 @@ ovdrs:Orgaan a rdfs:Class ;
 ovdrs:scan a rdf:Property ;
         rdfs:label "Scan"@nl ;
         rdfs:comment "Relatie voor het vastleggen van het document waarbij een scan hoort"@nl ;
-        schema:domainIncludes ovdrs:Scan ;
-        schema:rangeIncludes ovdrs:Card .
+        schema:domainIncludes ovdrs:Card ;
+        schema:rangeIncludes ovdrs:Scan .
 
 ovdrs:verdachte a rdf:Property ;
         rdfs:label "Verdachte"@nl ;
@@ -69,8 +69,8 @@ ovdrs:verdachte a rdf:Property ;
 ovdrs:phase a rdf:Property ;
         rdfs:label "Fase"@nl ;
         rdfs:comment "Relatie voor het vastleggen van een casus die bij een fase hoort"@nl ;
-        schema:domainIncludes ovdrs:Phase ;
-        schema:rangeIncludes ovdrs:Casus .
+        schema:domainIncludes ovdrs:Casus ;
+        schema:rangeIncludes ovdrs:Phase .
 
 ovdrs:orgaan a rdf:Property ;
         rdfs:label "Orgaan"@nl ;
@@ -117,7 +117,7 @@ ovdrs:event a rdf:Property ;
 ## Attributes
 
 ovdrs:side a rdf:Property ;
-        rdfs:label "Kant"@nl ;
+        rdfs:label "Scanzijde"@nl ;
         rdfs:comment "Gebruikt om de kant weergegeven op een scan aan te geven"@nl ;
         schema:domainIncludes ovdrs:Scan ;
         schema:rangeIncludes schema:Text .
@@ -130,7 +130,7 @@ ovdrs:cartotheekNummer a rdf:Property ;
 
 ovdrs:cabrId a rdf:Property ;
         rdfs:label "CABR ID"@nl ;
-        rdfs:comment "Gebruikt om het CABR ID van een kaart aan te geven"@nl ;
+        rdfs:comment "Gebruikt om het CABR ID van een kaart aan te geven (afkomstig uit de database van het Nationaal Archief)"@nl ;
         schema:domainIncludes ovdrs:Card ;
         schema:rangeIncludes schema:Text .
 
@@ -148,7 +148,7 @@ ovdrs:inventarisNummer a rdf:Property ;
 
 ovdrs:nodeId a rdf:Property ;
         rdfs:label "Node ID"@nl ;
-        rdfs:comment "Gebruikt om het node ID van een persoon aan te geven"@nl ;
+        rdfs:comment "Gebruikt om het node ID van een persoon aan te geven (afkomstig uit de database van het Nationaal Archief)"@nl ;
         schema:domainIncludes schema:Person ;
         schema:rangeIncludes schema:Text .
 
